@@ -1,0 +1,1 @@
+{"version":3,"sources":["electrons.css"],"names":[],"mappings":"AAAA,OACI,qBAAoC,CACpC,UAAW,CACX,WACF","file":"electrons.46bf23bd.css","sourceRoot":"../src","sourcesContent":["canvas {\n    background-color: rgb(255, 255, 255); \n    width: 100%;\n    height: auto;\n  }\n\n"]}

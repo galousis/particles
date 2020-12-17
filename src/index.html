@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+    <title>Ηλεκτρόνια σε μια σφαίρα</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../thomson.css" rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+</script>
+</head>
+<body>
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="nav blog-nav">
+                <a class="nav-link active" href="index.html">Παρουσίαση</a>
+                <a class="nav-link" href="simulation.html">Simulation</a>
+            </nav>
+        </div>
+    </div>
+    <div class="blog-header">
+        <div class="container">
+            <h3 class="blog-title">Ένα άλυτο μαθηματικό πρόβλημα και το ατομικό πρότυπο Thomson</h3>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 blog-main">
+                <div class="blog-post">
+                    <h4 class="blog-post-title">Ατομικό Πρότυπο Thomson</h4>
+                    <hr>
+                    <p class="blog-post-meta"> Αρχικά ας ξεκινήσουμε με μια μικρή τεχνική περιγραφή της προσομοίωσης.</p>
+                    <hr>
+                    <blockquote>
+                    <p>
+                        Παρουσίαση ενός project ανοιχτού κώδικα.</br> Μπορείτε να βρέιτε το κώδικα σε αυτό το <em><strong>github repository</strong> </em> <a target="_blank" rel="noopener noreferrer" href="https://github.com/galousis/particles">Thomson simulation project</a>.
+                    </p>
+                    <p>    
+                        Για την υλοποίηση επιλέχθηκε η Typescript ES6 ο κώδικας της οποίας γίνεται complile σε native Javascript.
+                        Παράλληλα η υλοποίηση <strong>δεν</strong> έχει <strong>dependencies</strong> από κάποιο physics library ή physics dedicated Js framework.</br></br>
+                        Κατά συνέπεια οι κλάσσεις, τα properties & οι μέθοδοι των αντικειμένων της υλοποίησης - <em><strong>το Render μιας 3D σφαίρας σε 2D</strong></em> - όπως πχ <em><strong>Vector, Camera (projection), Render, Display, RotationMatrix</strong></em> σχεδιάστηκαν <strong>from scratch</strong> 
+                        και όπου απαιτήθηκε χρησιμοποιήθηκαν οι βασικές μέθοδοι που προσφέρει το <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">Canvas Rendering Context2D</a>   στα διαθέσιμα Contracts <em>(aka Interfaces)</em>. 
+                        Συνοπτικά στο Canvas API προσφέροντε οι βασικές μέθοδοι όπως πχ για να κάνεις draw μια γραμμή, αλλά όχι για το πώς θα κινηθεί αυτή η γραμμή ή να τη κάνει καποιος projected στο Layer μιας Cameras.</br> 
+                        Μερικά παραδείγματα αυτών των contracts : </br></br>
+                        <img src="../assets/images/TypescriptInterfaceExample.png" alt="TypescriptInterfaceExample" title="TypescriptInterfaceExample" class="img-responsive fit-image"></br></br>
+                        Θα μπορούσε φυσικά κανείς να  επιλέξει <em>"πατήσει"</em> πάνω σε μια  <strong>third party</strong> βιβλιοθήκη όπως η <strong>Three.js</strong>, αρκεί να είχε όρεξη να μελετήσει σε βάθος μια αρκετά μεγάλη τεχνική τεκμηρίωση <em>(<strong>Documentation</strong>)</em> της βιβλιοθήκης αυτής.</br>
+                        Ηταν πιο <strong>ενδιαφέρων</strong> & διδακτικό να υλοποιηθεί από την αρχή το Render <em>(ενός 3D object σε 2D)</em> και ότι συμπεριλαμβάνει/απαιτεί από πλευράς Vector Analysis.</br>
+                        Η υλοποίηση της προσομοίωσης έγινε με Προοπτική Προβολή <em>(<strong>Perspective Projection</strong>)</em>, 
+                        εδω <a target="_blank" rel="noopener noreferrer" href="https://threejs.org/examples/#webgl_camera">Perspective vs Orhtografic Projection</a> μπορείτε να δείτε τη διαφορά ανάμεσα σε Ορθογραφική & Προοπτική Προβολή <em>(<strong>Perspective Projection</strong>)</em></br></br>
+                        Η <strong>μόνη</strong> third party βιβλιοθήκη που χρησιμοποιήθηκε είναι η <em><a target="_blank" rel="noopener noreferrer" href="https://www.mathjax.org/">MathJax</a></em> ώστε να γινουν render παρακάτω στη σελίδα χρήσιμοι για τη παρουσίαση μαθηματικοί τύποι. 
+                    </p>
+                    <hr>
+                    <p class="blog-post-meta">Επιγραμματική περιγραφή και παραπομπές για το αντικείμενο της προσομοίωσης.</p>
+                    <hr>
+                    <p>
+                        To project είναι μια <strong>προσομοίωση</strong> σωματιδίων <em>(<strong>ηλεκτρονίων</strong>)</em> τοποθετημένα στην επιφάνεια μιας σφαίρας. Τα σωματίδια προσπαθούν διαρκώς να είναι όσο το δυνατό μακρύτερα το ένα απο το άλλο, πάντα πάνω στην επιφάνεια της σφαίρας.
+                        Τελικώς καταλλήγουν σε μια θέση. Η προσομοίωση δίνει γραμμές που ενώνουν τα σωματιδίων όταν βρεθούν στη τελική τους θέση.
+                    </p>
+                    </blockquote>
+                    <blockquote>
+                    <p>Ένα πρόβλημα που αναδύεται κατά την εφαρμογή του ατομικού προτύπου του Thomson – άσχετα με το αν ισχύει ή όχι – είναι το εξής:</p>
+                    <p>
+                        Πως πρέπει να τοποθετηθούν τα ηλεκτρόνια έτσι ώστε το σύστημα των ηλεκτρικών φορτίων να έχει την ελάχιστη δυναμική ηλεκτροστατική ενέργεια;</br>
+                        Το επονομαζόμενο ως <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thomson_problem">πρόβλημα Thomson</a> <em>(ή <strong>7ο πρόβλημα του Smale *</strong>)</em> εξετάζει το πως πρέπει να τοποθετηθούν Ν ηλεκτρόνια στην επιφάνεια μιας σφαίρας έτσι ώστε να έχουν την ελάχιστη δυναμική ηλεκτροστατική ενέργεια.
+
+                    </p>
+                    <p>
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3">
+                                <p>
+                                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                        <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+                                            <mtr>
+                                                <mtd>
+                                                    <mi>V</mi>
+                                                    <mrow class="MJX-TeXAtom-ORD">
+                                                        <mrow>
+                                                        <mrow class="MJX-TeXAtom-OPEN"><mo stretchy="false">(</mo></mrow>
+                                                        <mrow class="MJX-TeXAtom-ORD">
+                                                            <mover>
+                                                                <mrow class="MJX-TeXAtom-ORD">
+                                                                    <mi mathvariant="bold">r</mi>
+                                                                </mrow>
+                                                                <mo stretchy="false">&#x2192;<!-- → --></mo>
+                                                            </mover>
+                                                        </mrow>
+                                                        <mrow class="MJX-TeXAtom-CLOSE"><mo stretchy="false">)</mo></mrow>
+                                                        </mrow>
+                                                    </mrow>
+                                                    
+                                                    <mo>=</mo>
+                                                    <mo>&#x2211;<!-- ∑ --></mo>
+                                                    <mfrac>
+                                                        <mrow>
+                                                            <msup>
+                                                                <mi>e</mi>
+                                                                <mi>2</mi>
+                                                            </msup>
+                                                        </mrow>
+                                                        <mrow>
+                                                            <msubsup>
+                                                                <mi>r</mi>
+                                                                <mi>i</mi>
+                                                                <mn>j</mn>
+                                                            </msubsup>
+                                                        </mrow>
+                                                    </mfrac>
+                                                </mtd>
+                                            </mtr>
+                                        </mtable>
+                                    </math>
+                                </p>  
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>    
+                    </p>
+                    <p>
+                        <div class="row">
+                            <div class="col-sm-1">όπου</div>
+                            <div class="col-sm-3">
+                                <p>
+                                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                        <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+                                            <mtr>
+                                                <mtd>
+                                                    <mrow>
+                                                        <msubsup>
+                                                            <mi>r</mi>
+                                                            <mi>i</mi>
+                                                            <mn>j</mn>
+                                                        </msubsup>
+                                                    </mrow>
+                                                    <mo>=</mo>
+                                                    <mo>|</mo>
+                                                    <mrow class="MJX-TeXAtom-ORD">
+                                                        <mover>
+                                                            <mrow class="MJX-TeXAtom-ORD">
+                                                                <mi mathvariant="bold">r</mi>
+                                                                <mi>i</mi>
+                                                            </mrow>
+                                                            <mo stretchy="false">&#x2192;<!-- → --></mo>
+                                                        </mover>
+                                                    </mrow>
+                                                    <mo>&#x2212;<!-- − --></mo>
+                                                    <mrow class="MJX-TeXAtom-ORD">
+                                                            <mover>
+                                                                <mrow class="MJX-TeXAtom-ORD">
+                                                                    <mi mathvariant="bold">r</mi>
+                                                                    <mi>j</mi>
+                                                                </mrow>
+                                                                <mo stretchy="false">&#x2192;<!-- → --></mo>
+                                                            </mover>
+                                                        </mrow>
+                                                    <mo>|</mo>
+                                                </mtd>
+                                            </mtr>
+                                        </mtable>
+                                    </math>
+                                </p> 
+                            </div>
+                            <div class="col-sm-8">oι αποστάσεις μεταξύ των ζευγών των ηλεκτρονίων που βρίσκονται στην επιφάνεια μιας σφαίρας με κέντρο την αρχή των συντεταγμένων  και e το ηλεκτρικό φορτίο του ηλεκτρονίου.</div>
+                        </div>  
+                    </p>
+                    <p>
+                        Για Ν=2, η απάντηση είναι εύκολη. Τοποθετούμε τα ηλεκτρόνια στις αντιδιαμετρικές θέσεις μιας οποιαδήποτε διαμέτρου της σφαίρας. Για Ν=3, τα τοποθετούμε στις κορυφές ενός ισοπλεύρου τριγώνου εγγεγραμμένου σε έναν μέγιστο κύκλο της σφαίρας. Όμως καθώς ο αριθμός των σημείων αυξάνεται, άλλο τόσο δυσκολεύει η επίλυση του προβλήματος
+                    </p>
+                        
+                    <p>
+                        H δομή στην οποία καταλλήγουν τα σωματίδια εξαρτάται απο τον αριθμό τους.
+                    </p>    
+                    </blockquote>
+                    <p>
+                        Μπορείτε να αλλάξετε των αριθμό αυτο στο πεδίο εισαγωγής πατώντας enter αφού πρώτα δώσετε τον αριθμό.
+                        Μπορείτε να δώσετε αριθμό σωματιδίων από 
+                        <strong><span id="MinParticleCountSpan"></span> εώς και <span id="MaxParticleCountSpan"></span></strong>.
+                    </p>
+                    <p>
+                        Η Μαθηματική αυτή κατασκευή προέρχεται από μια περίοδο πρίν τη Θεωρία Υποατομικών Σωματιδίων και δομών απο τις αρχες του 20ού αιώνα.</br>
+                        Μια τέτοια προσομείωση μπορεί να προσεγγίση μια λύση, αλλά δεν έχει κατασκευαστεί μέχρι και σήμερα μια γενική φόρμουλα
+                        που να δίνει όλες τις δομές ανά αριθμό σωματιδίων.
+                    </p>
+                </div>
+
+                <div class="blog-post">
+                    <h4 class="blog-post-title">* Steve Smale</h4>
+                    <hr>
+                    <p class="blog-post-meta">Επιγραμματική περιγραφή και παραπομπές για τα ιστορικά στοιχεία του προβλήματος της ατομικής μοντελοποίησης.</p>
+                    <hr>
+                    <blockquote>
+                    <p>
+                        Το 1998 ο μαθηματικός <strong>Steve Smale</strong> δημοσίευσε μια λίστα από 18 άλυτα προβλήματα (<a target="_blank" rel="noopener noreferrer" href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=D6DC68333D8DEF9AC64D1EC9A67B6583?doi=10.1.1.35.4101&rep=rep1&type=pdf"> problems for the next century Steve Smale</a>), 
+                        έπειτα από αίτημα του τότε αντιπροέδρου της Διεθνούς Μαθηματικής Εταιρίας Vladimir Arnold. 
+                        Ο Arnold ζήτησε από τους μαθηματικούς να προτείνουν μια λίστα προβλημάτων για τον 21ο αιώνα, εμπνεόμενος από την αντίστοιχη λίστα των προβλημάτων του Hilbert που δημοσιεύθηκε στις αρχές του 20ου αιώνα.
+                    </p>
+                    <p>    
+                        Το 7ο στη λίστα από τα 18 άλυτα προβλήματα που πρότεινε ο Smale, έχει άμεση σχέση με τη φυσική. Πρόκειται για ένα πρόβλημα που έχει άμεση σχέση με το <b>πρώτο ατομικό μοντέλο</b>.
+                    </p>
+            
+                    <p>
+                        Ο φυσικός λοιπόν που ανακάλυψε το ηλεκτρόνιο,<strong>J. J. Thomson</strong>, είχε προτείνει το 1904 τη δική του θεωρία για τη δομή του ατόμου. Διατύπωσε το μοντέλο του <em>Plum Pudding</em>, σύμφωνα με το οποίο το θετικό ηλεκτρικό φορτίο κατανέμεται ομοιόμορφα σε μια σφαιρική περιοχή (δεν υπάρχουν πρωτόνια), μέσα στην οποία βρίσκονται τα ηλεκτρόνια.
+                    </p>
+                    <p>
+                        Σύμφωνα με τη θεωρία του Thomson, τα ηλεκτρόνια <em>"σταφίδες"</em> είναι ελεύθερα να κινηθούν στο θετικά φορτισμένο <em>"ψωμί"</em>, ενώ μια λεπτή ισορροπία μεταξύ της έλξης τους προς το κέντρο του θετικού φορτίου και της άπωσης μεταξύ τους, τα κρατάει συγκεντρωμένα στην ίδια περιοχή. Αν το μοντέλο αυτό διαταραχθεί με απορρόφηση ενέργειας, τότε τα ηλεκτρόνια εκτελούν ταλαντώσεις γύρω από τις συνήθεις θέσεις τους. Η συχνότητα των ταλαντώσεων αυτών καθορίζει τη συχνότητα των εκπεμπόμενων ακτινοβολιών από το άτομο.
+                    </p>
+                     </blockquote>
+                    <p>
+                        O Joseph John Thomson <strong>βραβεύθηκε το 1906 με το νόμπελ φυσικής</strong> διότι απέδειξε ότι το ηλεκτρόνιο είναι σωματίδιο ενώ ο γιός του, <strong>George Paget Thomson, βραβεύθηκε με το νόμπελ φυσικής 1937</strong> γιατί απέδειξε ότι το ηλεκτρόνιο συμπεριφέρεται και ως κύμα!</br>
+                        <strong>Tο ατομικό πρότυπο του Thomson ως γνωστόν απορρίφθηκε από τα πειράματα του Rutherford.</strong>
+                    </p>
+                    <p>
+                        <div class="row">
+                            <div class="col-sm-10"><img src="../assets/images/historicModels.jpg" alt="models_history" title="models_history" class="img-responsive fit-image"> </div>
+                        </div>    
+                    </p>
+                </div>
+            </div>
+    
+            <div class="col-sm-3 offset-sm-1 blog-sidebar">
+                <div class="sidebar-module sidebar-module-inset">
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10"><img src="../assets/images/Thomsons-Atomic-model-2.png" alt="thomson" title="thomson" class="img-responsive fit-image"></div>
+                        <div class="col-sm-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10"><img src="../assets/images/Thomsons-Atomic-model-1.png" alt="thomson_alt" title="thomson_alt" class="img-responsive fit-image"></div>
+                        <div class="col-sm-1"></div>
+                    </div>
+                    <p><em>Σύμφωνα με το μοντέλο του Thomson (1897), τα  αρνητικά φορτισμένα ηλεκτρόνια είναι εμβαπτισμένα σε μια σφαίρα θετικού φορτίου, όπως φαίνεται στην εικόνα:</em></p>
+                </div>
+                <div class="sidebar-module sidebar-module-inset">
+                    <img src="../assets/images/thomsonsolutions.png" alt="thomsonsolutions" title="thomsonsolutions" class="img-responsive fit-image">
+                    <p><em>Οι λύσεις του μοντέλου για αριθμό σωματιδίων 2 εώς 5 (<strong>Η προσομοίωση ακολουθεί αυτό το σχέδιο</strong>)</em></p>
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div>
+    <footer class="blog-footer">
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+    <div id="HideShowExplanationButton" style="display:none;"></div>
+    <div id="ExplanationDiv" class="TextBlock" style="display:none;">
+        <p>
+            <span id="MinParticleCountSpan"></span>
+            to
+            <span id="MaxParticleCountSpan"></span>.
+        </p>
+    </div>
+    <div id="ErrorMessageDiv" class="CenteredControl ErrorText"></div>
+</body>
+</html>
