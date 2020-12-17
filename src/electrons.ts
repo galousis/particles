@@ -676,7 +676,7 @@ module Electrons {
             }
 
             let isConnectedIndex:{[index:number]:boolean} = {};
-            let linedash = [[], [1,3], [1,6], [1,9], [1,13]];
+            let linedash = [[], [3,6], [], [1,5], [1,10]];
 
             for (let level=0; level < 5; ++level) 
             {
@@ -731,6 +731,7 @@ module Electrons {
                                 if (distance <= threshold) 
                                 {
                                     let jcolor:string = this.PointColor(jpos, zbend);
+                                    //console.log(linedash[level]);
                                     display.DrawLine(context, ipos, jpos, icolor, jcolor, linedash[level]);
                                     nextIsConnectedIndex[i] = nextIsConnectedIndex[j] = true;
                                 }
