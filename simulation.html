@@ -1,1 +1,87 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="description" content=""><meta name="author" content=""><link rel="icon" href="favicon.1403590e.ico"><link href="bootstrap.0b82564c.css" rel="stylesheet"><link href="thomson.fcfc48c5.css" rel="stylesheet"><link href="asciinema-player.0390ea8b.css" rel="stylesheet"><title>Ηλεκτρόνια σε μια σφαίρα</title><link rel="stylesheet" href="electrons.46bf23bd.css"><script src="electrons.5affd995.js"></script></head><body> <div class="blog-masthead"> <div class="container"> <nav class="blog-nav nav"> <a class="active nav-link" href="index.html">Παρουσίαση</a> <a class="nav-link" href="simulation.html">Simulation</a> </nav> </div> </div> <div class="blog-header"> <div class="container"> <h3 class="blog-title">Η προσομοίωση</h3> </div> </div> <div class="container"> <div class="row"> <div class="blog-main col-sm-8"> <div class="blog-post"> <h4 class="blog-post-title">Ατομικό Πρότυπο Thomson</h4> <hr> <div class="CenteredControl"> <form action="" autocomplete="off"> <label class="EditLabel">Αριθμός σωματιδίων: <input type="text" id="ElectronsCountEditBox" name="ParticleCount" size="3" maxlength="3" class="EditBox"> </label> </form> </div> <canvas id="SimCanvas" width="800" height="800"></canvas> </div> </div> <div class="blog-sidebar col-sm-3 offset-sm-1"> <div class="sidebar-module sidebar-module-inset"> <img src="step1b.5f1f57af.jpg" alt="step1" title="step1" class="fit-image img-responsive"> <p><em>Τοποθετούμε τυχαία στην επιφάνεια της σφαίρας τα ηλεκτρόνια.</em></p> </div> <div class="sidebar-module sidebar-module-inset"> <img src="step3.caafc750.jpg" alt="step3" title="step3" class="fit-image img-responsive"> <p><em>Οσο ποιό κοντά είναι τα ηλεκτρόνια, τόσο μεγαλύτερες είναι οι δυνάμεις που αλληλεπιδρούν μεταξύ τους.</em></p> </div> <div class="sidebar-module sidebar-module-inset"> <img src="step4.b3e85589.jpg" alt="step4" title="step4" class="fit-image img-responsive"> <p><em>Η συνιστώσα δύναμη είναι το διανυσματικό άρθροισμα όλων των δυνάμεων.</em></p> </div> <div class="sidebar-module sidebar-module-inset"> <img src="step5.dbd08f9c.jpg" alt="step5" title="step5" class="fit-image img-responsive"> <p><em>Οταν η συνιστώσα δύναμη σε κάθε ηλεκτρόνιο είναι κάθετη στην επιφάνεια της σφαίρας τότε έχουμε και τη δομή αναλόγως των αριθμό των ηλεκτρονιών.</em></p> </div> </div> </div> <div class="row"> <div class="blog-main col-sm-12"> <asciinema-player src="236096.cast" cols="268" rows="65"></asciinema-player> </div> </div> <script src="asciinema-player.2f1d6fdc.js"></script> </div> <footer class="blog-footer"> <p> <a href="#">Back to top</a> </p> </footer> <div id="ErrorMessage" class="CenteredControl ErrorText"></div> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.26242483.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.04cbfb1e.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/thomson.25cc65e7.css" rel="stylesheet">
+
+    <link href="/asciinema-player.724c5257.css" rel="stylesheet">
+
+    <title>Ηλεκτρόνια σε μια σφαίρα</title>
+    <link rel="stylesheet" href="/electrons.27b631d5.css">
+    <script src="/electrons.430c8c54.js"></script>
+
+<script src="/asciinema-player.724c5257.js"></script><script src="/electrons.27b631d5.js"></script></head>
+<body>
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="nav blog-nav">
+                <a class="nav-link active" href="/index.html">Παρουσίαση</a>
+                <a class="nav-link" href="/simulation.html">Simulation</a>
+            </nav>
+        </div>
+    </div>
+    <div class="blog-header">
+        <div class="container">
+            <h3 class="blog-title">Η προσομοίωση</h3>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 blog-main">
+                <div class="blog-post">
+                    <h4 class="blog-post-title">Ατομικό Πρότυπο Thomson</h4>
+                    <hr>
+                    <div class="CenteredControl">
+                        <form action="" autocomplete="off">
+                            <label class="EditLabel">Αριθμός σωματιδίων:
+                                <input type="text" id="ElectronsCountEditBox" name="ParticleCount" size="3" maxlength="3" class="EditBox">
+                            </label>
+                        </form>
+                    </div>
+                    <canvas id="SimCanvas" width="800" height="800"></canvas>
+                </div>
+            </div>
+    
+            <div class="col-sm-3 offset-sm-1 blog-sidebar">
+                <div class="sidebar-module sidebar-module-inset">
+                    <img src="/step1b.f9f9f2b8.jpg" alt="step1" title="step1" class="img-responsive fit-image">
+                    <p><em>Τοποθετούμε τυχαία στην επιφάνεια της σφαίρας τα ηλεκτρόνια.</em></p>
+                </div>
+                <div class="sidebar-module sidebar-module-inset">
+                    <img src="/step3.9fd8f068.jpg" alt="step3" title="step3" class="img-responsive fit-image">
+                    <p><em>Οσο ποιό κοντά είναι τα ηλεκτρόνια, τόσο μεγαλύτερες είναι οι δυνάμεις που αλληλεπιδρούν μεταξύ τους.</em></p>
+                </div>
+                <div class="sidebar-module sidebar-module-inset">
+                    <img src="/step4.b7a5638b.jpg" alt="step4" title="step4" class="img-responsive fit-image">
+                    <p><em>Η συνιστώσα δύναμη είναι το διανυσματικό άρθροισμα όλων των δυνάμεων.</em></p>
+                </div>
+                <div class="sidebar-module sidebar-module-inset">
+                    <img src="/step5.546b8d42.jpg" alt="step5" title="step5" class="img-responsive fit-image">
+                    <p><em>Οταν η συνιστώσα δύναμη σε κάθε ηλεκτρόνιο είναι κάθετη στην επιφάνεια της σφαίρας τότε έχουμε και τη δομή αναλόγως των αριθμό των ηλεκτρονιών.</em></p>
+                </div>
+            </div>
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="col-sm-12 blog-main">
+                <asciinema-player src="236096.cast" cols="268" rows="65"></asciinema-player>
+            </div>
+        </div>
+        <script src="/asciinema-player.b33103a6.js"></script>
+    </div>
+    <footer class="blog-footer">
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+    <div id="ErrorMessage" class="CenteredControl ErrorText"></div>
+</body>
+</html>
