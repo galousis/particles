@@ -677,7 +677,6 @@ module Electrons {
 
             let isConnectedIndex:{[index:number]:boolean} = {};
             let linedash = [[], [3,6], [], [1,5], [1,10]];
-
             for (let level=0; level < 5; ++level) 
             {
                 // Find the smallest distance between any two (as-yet unconnected) electrons.
